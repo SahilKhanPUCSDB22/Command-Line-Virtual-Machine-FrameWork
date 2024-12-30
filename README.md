@@ -12,6 +12,7 @@ List of aliases :
 7. vm-stop -> name of vm -> stops a running virtual machine(if unsuccessfull force terminate the virtial machine)
 
 Platforms supported currently : ubuntu
+
 Testing on other platforms is not done yet.Will update this as further testing is done.
 
 Any future aliases or changes will be updated here.Thank you.
