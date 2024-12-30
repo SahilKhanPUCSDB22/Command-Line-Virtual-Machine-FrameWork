@@ -13,7 +13,7 @@ echo -e "Following packages are required to run the vm_manager :\n1.qemu-system\
 
 $SUDO apt install -y qemu-system virt-manager sed gawk grep coreutils
 
-echo "If all installed enter y to proceed else else n to exit"
+echo -e "\nIf all installed enter y to proceed  else n to exit"
 read inp
 
 if  [  $inp != 'y' ] && [ $inp != 'Y' ];
@@ -37,7 +37,7 @@ fi
 
 echo "Moving all files to /home/$USER/vm_manager/ ..."
 
-mv vm* /home/$USER/vm_manager/ 
+mv vm* README* /home/$USER/vm_manager/ 
 
 if [ $? -ne 0 ];
 then
@@ -49,15 +49,10 @@ fi
 if [ -z "$(cat /home/$USER/.bashrc | grep "source /home/$USER/vm_manager/vmrc")" ];
 then
 	echo "source /home/$USER/vm_manager/vmrc" >> /home/$USER/.bashrc
+	source /home/$USER/.bashrc
 	echo "Adding source statement to .bashrc for aliases"
 fi
 
-PRESWD=$pwd
-cd /home/$USER/
-rm -rf $PRESWD
-
-source /home/$USER/.bashrc
-
 echo "Check readme for detailed description of aliases and their uses."
 
-echo "ALL Setup Done."
+echo "ALL Setup Done.Please delete the current directory."
