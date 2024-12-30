@@ -33,6 +33,16 @@ else
 	fi
 fi
 
+echo "Moving all files to /home/$USER/vm_manager/ ..."
+
+mv vm* /home/$USER/vm_manager/ 
+
+if [ $? -ne 0 ];
+then
+	echo "Failed to move files to /home/$USER/vm_manager ..."
+	echo "Retry..." 
+	exit
+fi
 echo -e "Add this line in your local bash conf file to use aliases:\nsource /home/$USER/vm_manager/vmrc"
 
 echo "Check readme for detailed description of aliases and their uses."
