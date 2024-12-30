@@ -1,0 +1,8 @@
+target_dir="/home/$(whoami)/vm_manager"
+alias vm-create='$target_dir/vm_create.sh'
+alias vm-destroy='$target_dir/vm_destroy.sh'
+alias vm-ssh-run='$target_dir/vm_runner.sh'
+alias vm-stop='$target_dir/vm_stopper.sh'
+alias vm-grap-run='$target_dir/vm_grun.sh'
+alias vm-list='$target_dir/vm_list.sh'
+alias vm-clone='$target_dir/vm_dup.sh'
