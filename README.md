@@ -1,3 +1,5 @@
+COMMAND LINE VIRTUAL MACHINE FRAMEWORK
+
 A simple virtual machine creation and management interface based on virsh command line utility.Currently in it's primitive stage.
 Entirely written using bash script.
 Allows to create , run, ssh into, clone, list and destroy virtual machines easily.
@@ -11,7 +13,9 @@ List of aliases :
 6. vm-grap-run -> name of vm -> run and open a graphical console for a machine
 7. vm-stop -> name of vm -> stops a running virtual machine(if unsuccessfull force terminate the virtial machine)
 
-Platforms supported currently : ubuntu
+Platforms supported currently : ubuntu(latest version)
+
+Please note that this was created and tested on ubuntu 22.04.3 (kernel - Linux 6.8.0-40-generic).Undefined behaviour may be encountered on other distros and versions.Avoid using it on virtual machines.
 
 Testing on other platforms is not done yet.Will update this as further testing is done.
 
