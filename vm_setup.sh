@@ -24,12 +24,12 @@ fi
 if [ ! -d "/home/$USER/vm_manager" ];
 then
 	echo "Creating vm_manager directory in home dir of user : $USER ..."
-	mkdir -p vm_manager/virt_disks
+	mkdir -p /home/$USER/vm_manager/virt_disks
 else
 	if [ ! -d "/home/$USER/vm_manager/virt_disks" ];
 	then
 		"Creating virt_disks directory in vm_manager directory ..."
-		mkdir /home/$USER/vm_manager/virt-disks
+		mkdir /home/$USER/vm_manager/virt_disks
 	fi
 fi
 
