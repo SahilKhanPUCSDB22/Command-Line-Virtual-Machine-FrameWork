@@ -8,11 +8,17 @@ MACHINES=$(virsh list --all | grep '^\s[0-9-]')
 LIST=$(echo "$MACHINES" | awk '{print $2}')
 COUNT=$(echo "$LIST" | wc -l)
 
-ALLMACHINES=$(paste <(seq 1 $COUNT) <(echo "$LIST"))
+ALLMACHINES="$(paste <(seq 1 $COUNT) <(echo "$LIST"))"
 
 echo "$ALLMACHINES"
 printf "Enter option number :"
 read OPTION
+
+if ! [[ $OPTION =~ ^-?[0-9]+$ ]];
+then
+	echo "Invalid input.Expected integer"
+	exit
+fi
 
 if [ $OPTION -le 0 ] || [ $OPTION -gt $COUNT ] ;
 then
@@ -29,14 +35,15 @@ then
 	exit
 fi
 
-printf "Enter new machine name(Don't append username) :"
+printf "Enter new machine name :"
 read DESTMACHINE
 
 echo "Starting Cloning process..."
 virt-clone \
 	--original $SRCMACHINE \
-	--name $DESTMACHINE-$USER \
-	--file $WORKDIR/$DESTMACHINE-$USER.qcow2
+	--name $DESTMACHINE \
+	--file $WORKDIR/$DESTMACHINE.qcow2
+
 if [ $? -ne 0 ];
 then
 	echo "Failed to clone machine.Try again..."

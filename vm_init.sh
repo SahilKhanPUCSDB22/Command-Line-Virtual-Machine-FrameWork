@@ -59,7 +59,7 @@ then
 	rm $QCOW2POOL/$VMNAME.qcow2
 fi
 echo -e "Attempting to create a new qcow file\n"
-qemu-img create -f qcow2 /home/$USER/$VMDIR/$DISKDIR/$VMNAME-$USER.qcow2 "$VMSIZE"G &> $SILENCE
+qemu-img create -f qcow2 /home/$USER/$VMDIR/$DISKDIR/$VMNAME.qcow2 "$VMSIZE"G &> $SILENCE
 
 err_status=$?
 
@@ -75,13 +75,13 @@ fi
 #
 #replace placeholders
 
-QCOWP="/home/$USER/$VMDIR/$DISKDIR/$VMNAME-$USER.qcow2"
+QCOWP="/home/$USER/$VMDIR/$DISKDIR/$VMNAME.qcow2"
 #ison="/home/$USER/$VMDIR/$VMISOFILE"
 
 echo -e "******First run of VM********\n"
 
 virt-install \
-  --name $VMNAME-$USER \
+  --name $VMNAME \
   --ram 2500 \
   --vcpus 4 \
   --disk path=$QCOWP,format=qcow2 \
@@ -113,4 +113,4 @@ else
 	echo -e "cpus set to user input"
 fi
 
-
+echo "Virtual Machine created Successfully..."
